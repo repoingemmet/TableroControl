@@ -1,0 +1,49 @@
+﻿@model IEnumerable<INGEMMET.TableroControl.Models.TablaGenerica>
+
+@foreach (var menu in Model)
+{
+    if (String.IsNullOrEmpty(menu.adicional3))
+    {
+        var menuHijos = Model.Where(x => x.adicional3 == menu.codigo);
+        int totalHijos = menuHijos.Count();
+        string url = string.Empty;
+        bool estado = String.IsNullOrEmpty(menu.adicional);
+        var linkClass = totalHijos > 0 ? estado ? "slidedown disabled" : "slidedown" : estado ? "disabled" : "";
+
+        if (totalHijos > 0)
+        {
+            var firstChild = menuHijos.FirstOrDefault();
+            url = Url.Action("LoadReports", "Home", new { type = firstChild.descripcion, key = firstChild.codigo });
+        }
+        else
+        {
+            url = Url.Action("LoadReports", "Home", new { type = menu.descripcion, key = menu.codigo });
+        }
+
+        <li class="@linkClass">
+
+            <a href="@(estado ? "javascript: void(0); " : Server.UrlDecode(url))">
+
+                <i class="fa @menu.detalle"></i>&nbsp;@menu.descripcion
+                @if (totalHijos > 0)
+                {
+                    <span class="fa fa-chevron-down"></span>
+                }
+            </a>
+
+            @if (totalHijos > 0)
+            {
+                <ul class="nav child_menu">
+                    @foreach (var child in menuHijos)
+                    {
+                        <li>
+                            <a href="@(String.IsNullOrEmpty(child.adicional)?"javascript:void(0);": Server.UrlDecode(Url.Action("LoadReports", "Home",
+                                     new { type = child.descripcion, key = child.codigo })))"
+                               class="nav-link ">@child.descripcion</a>
+                        </li>
+                    }
+                </ul>
+            }
+        </li>
+    }
+}

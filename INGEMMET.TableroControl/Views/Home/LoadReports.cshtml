@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Reportes";
+}
+
+@Html.ActionLink("Retornar al tablero de control", "Index", "Home", null, new { @class = "btn btn-default btn-icon-retornar" })
+
+<div class="embed-responsive embed-responsive-16by9">
+    <iframe class="embed-responsive-item" src="@ViewBag.url"></iframe>
+</div>
+
+@section Scripts {
+    <script type="text/javascript">
+        (function ($) {
+            calcHeightIframe();
+            $(window).resize(calcHeightIframe);
+        })(jQuery);
+
+        function calcHeightIframe() {
+            var wHeight = $(window).height() - 150;
+            $('.embed-responsive iframe').css({
+                height: wHeight,
+                width: '100%',
+                boxShadow: '1px 2px 10px #cecece',
+                border: 0
+            });
+        }
+    </script>
+
+}
