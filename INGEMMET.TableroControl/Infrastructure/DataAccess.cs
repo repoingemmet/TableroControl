@@ -6,6 +6,7 @@ using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Web;
+using System.Configuration;
 
 namespace INGEMMET.TableroControl.Infrastructure
 {
@@ -71,10 +72,14 @@ namespace INGEMMET.TableroControl.Infrastructure
         {
             List<TablaGenerica> lisQuery = null;
             Database db = DatabaseFactory.CreateDatabase();
-            using (DbCommand dbCommand = db.GetStoredProcCommand("PACK_DBA_TABCONTROL.P_LIST_MENUTABLERO", new object[1]))
+            using (DbCommand dbCommand = db.GetStoredProcCommand("PACK_DBA_TABCONTROL.P_LIST_TABLERO_MENU", new object[2]))
             {
+
+                db.SetParameterValue(dbCommand, "IN_TIPO", ConfigurationManager.AppSettings["TipoAplicacion"].ToString());
+
                 using (IDataReader dtrQuery = db.ExecuteReader(dbCommand))
                 {
+
                     try
                     {
                         lisQuery = new List<TablaGenerica>();
