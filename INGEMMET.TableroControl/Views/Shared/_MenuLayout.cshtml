@@ -8,7 +8,7 @@
         int totalHijos = menuHijos.Count();
         string url = string.Empty;
         bool estado = String.IsNullOrEmpty(menu.adicional);
-        var linkClass = totalHijos > 0 ? estado ? "slidedown disabled" : "slidedown" : estado ? "disabled" : "";
+        var linkClass = totalHijos > 0 ? estado ? "container slidedown disabled" : "container slidedown" : estado ? "disabled" : "";
 
         if (totalHijos > 0)
         {

@@ -9,12 +9,15 @@ namespace INGEMMET.TableroControl
         public static void RegisterBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+                        "~/Scripts/jquery-{version}.js"
+                        
+                        ));
 
             bundles.Add(new ScriptBundle("~/bundles/bootstrap")
-                .Include("~/Scripts/bootstrap.min.js")
-                .Include("~/Scripts/respond.min.js")
-                .Include("~/Scripts/Site.js"));
+                .Include("~/Scripts/bootstrap.js")
+                //.Include("~/Scripts/respond.min.js")
+                .Include("~/Scripts/Site.js")
+                );
 
             bundles.Add(new StyleBundle("~/Content/css")
                 .Include("~/Content/bootstrap.min.css")
