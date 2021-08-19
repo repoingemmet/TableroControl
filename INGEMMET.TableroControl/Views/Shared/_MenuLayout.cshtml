@@ -24,7 +24,8 @@
 
             <a href="@(estado ? "javascript: void(0); " : Server.UrlDecode(url))">
 
-                <i class="fa @menu.detalle"></i>&nbsp;@menu.descripcion
+                <i class="fa @menu.detalle"></i> &nbsp;@menu.descripcion
+
                 @if (totalHijos > 0)
                 {
                     <span class="fa fa-chevron-down"></span>

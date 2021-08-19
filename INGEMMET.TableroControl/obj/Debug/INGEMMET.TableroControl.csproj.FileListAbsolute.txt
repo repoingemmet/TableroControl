@@ -45,3 +45,4 @@ F:\00_datos\00_desarrollo\_Proyectos_git\TableroControl\INGEMMET.TableroControl\
 F:\00_datos\00_desarrollo\_Proyectos_git\TableroControl\INGEMMET.TableroControl\obj\Debug\INGEMMET.TableroControl.csproj.CopyComplete
 F:\00_datos\00_desarrollo\_Proyectos_git\TableroControl\INGEMMET.TableroControl\obj\Debug\INGEMMET.TableroControl.dll
 F:\00_datos\00_desarrollo\_Proyectos_git\TableroControl\INGEMMET.TableroControl\obj\Debug\INGEMMET.TableroControl.pdb
+F:\00_datos\00_desarrollo\_Proyectos_git\TableroControl\INGEMMET.TableroControl\obj\Debug\INGEMMET.TableroControl.csproj.AssemblyReference.cache
